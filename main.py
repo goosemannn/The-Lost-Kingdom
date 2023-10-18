@@ -9,6 +9,9 @@ import stages.tutorial as tutorial
 import stages.beginning as beginning
 import functions.typeEffect as typeEffect
 from functions.clear import clear
+from functions.inputProcessing import hinput
+from functions.combat import startBattle
+from functions.calculateDamage import damage
 
 with open("./data/stagesComplete.json", "r") as f:
   stagesComplete = json.load(f)
@@ -20,8 +23,6 @@ def updateStagesComplete():
   with open('./data/stagesComplete.json', 'w') as f:
     f.write(json.dumps(stagesComplete))
   
-
-
 # Tutorial 
 if stagesComplete["stagesCompleted"] < 1:
   tutorial.run(typeEffect, clear)
@@ -34,6 +35,6 @@ if stagesComplete["stagesCompleted"] < 2:
 
 # After the intro, the game starts
 if stagesComplete["stagesCompleted"] < 3:
-  beginning.run(typeEffect)
+  beginning.run(typeEffect, clear,  hinput, startBattle, damage)
   updateStagesComplete()
 

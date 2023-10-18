@@ -1,8 +1,7 @@
 {
   "Name":"Basic Sword",
   "Description":"A basic sword.",
-  "dmg":["R",2],
+  "dmg":["R",10],
   "block":10,
   "hitChance":80
-}
 }
