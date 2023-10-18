@@ -1,0 +1,7 @@
+{
+  "Name":"Basic Staff",
+  "Description":"A basic staff, capable of doing simple spells",
+  "dmg":["M",0],
+  "block":10,
+  "spells":["./magic/magicmissile.json", "./magic/protectivebarrier.json"]
+}

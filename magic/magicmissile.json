@@ -1,0 +1,5 @@
+{
+  "Name":"Magic Missile",
+  "Description":"A simple magic attack",
+  "Effect":[["dmg", ["R",1]]]
+}

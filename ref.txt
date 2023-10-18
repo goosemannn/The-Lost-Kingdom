@@ -1,0 +1,14 @@
+TYPES OF SHIEIDING:
+  A, All attacks
+  M, Magic attacks
+  R, Ranged attacks
+  M, Melee attacks
+
+Effect Types:
+  H, Heal
+
+TYPES OF ATTACK:
+  R, regular, just does damage
+  C, Critial, has chance of doing critical hit, or missing
+  M, Magic, look for spells in info
+  B, Bleed, does a small damage over time effect, noted by the 3rd item in list

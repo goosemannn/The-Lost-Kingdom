@@ -1,0 +1,5 @@
+{
+  "Name":"Small Health Potion",
+  "Description":"A small health potion, restoring 15 HP",
+  "Effect":["H",15]
+}

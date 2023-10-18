@@ -1,0 +1,7 @@
+{
+  "Name":"Basic Bow",
+  "Description":"A basic bow.",
+  "dmg":["C",2],
+  "block":0,
+  "hitChance":60
+}
