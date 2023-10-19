@@ -1,5 +1,8 @@
 {
   "Name":"Magic Missile",
   "Description":"A simple magic attack",
-  "Effect":[["dmg", ["R",1]]]
+  "hitChance":80,
+  "Effect":["dmg", ["R",10]],
+  "successMessage": "You launch a magic missile at the enemy, dealing 10 damage.",
+  "failMessage": "Your magic missile missed!"
 }

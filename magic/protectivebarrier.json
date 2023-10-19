@@ -1,5 +1,8 @@
 {
   "Name":"Protective Barrier",
   "Description":"Makes the next attack deal 50% damage",
-  "Effect":[["shield", ["A",50], "inf"]]
+  "hitChance":90,
+  "Effect":["shield", ["A",50], "inf"],
+  "successMessage":"You protected yourself from the next attack.",
+  "failMessage":"You messed up the spell and aren't protected from the next attack."
 }

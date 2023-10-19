@@ -108,18 +108,21 @@ def startBattle(typeEffect, clear, hinput, damage, enemy:dict):
       clear()
       with open(player["inventory"]["weapons"][weaponSelected-1], "r") as f:
         weapon = json.load(f)
-      dmg = damage(enemy["health"], weapon["dmg"][0], weapon["dmg"][1], weapon["hitChance"])
-      if dmg[1] == "M":
+      if weapon["dmg"][0] == "M":
+        dmg = damage(weapon, enemy, typeEffect, clear, hinput, enemy["health"], weapon["dmg"][0], weapon["dmg"][1], weapon["hitChance"], spells=weapon['spells'])
+      else:
+        dmg = damage(weapon, enemy, typeEffect, clear, hinput, enemy["health"], weapon["dmg"][0], weapon["dmg"][1], weapon["hitChance"])
+      if dmg[1] == "Mi":
         typeEffect.medium(Fore.WHITE+"You missed the " + enemy["name"] + ".")
         sleep(2)
         clear()
         continue
       elif weapon["dmg"][0] == "R" or weapon["dmg"][0] == "B" or weapon["dmg"][0] == "C":
         enemy["health"] = dmg[0]
-        typeEffect.medium(Fore.WHITE+"You attack the " + enemy["name"] + " with your " + weapon["Name"] + ", leaving it with " + str(enemy["health"]) + " HP.")
-        sleep(2)
-        clear()
         continue
+      elif weapon["dmg"][0] == "M":
+        
+        
       
     
       
