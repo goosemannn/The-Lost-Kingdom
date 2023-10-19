@@ -81,9 +81,10 @@ def startBattle(typeEffect, clear, hinput, damage, enemy:dict):
         print("     -"+weapon["Description"])
       else:
         print(white+"  -"+weapon["Name"])
-    print(Fore.RED+"Back")
+      i += 1
       
   def weaponSelectInp(inp):
+    nonlocal weaponSelected
     if inp == "s" and weaponSelected < len(player["inventory"]["weapons"]):
       weaponSelected += 1
       return False
@@ -101,18 +102,21 @@ def startBattle(typeEffect, clear, hinput, damage, enemy:dict):
 
     if actionSelected == 1:
       while True:
-        while True:
-          showWeapons()
-          if hinput(weaponSelectInp):
-            break
-        if weaponSelected == len(player["inventory"]["weapons"]):
-          continue 
-        break 
+        showWeapons()
+        if hinput(weaponSelectInp):
+          break
       clear()
-      weapon = ["inventory"]["weapons"][weaponSelected-1]
-      if weapon["dmg"][0] == "R" or weapon["dmg"][0] == "B" or weapon["dmg"][0] == "C":
-        enemy["health"] = damage(enemy["health"], weapon["dmg"][0], weapon["dmg"][1], weapon["hitChance"])
-        typeEffect.medium("You attack the " + enemy["name"] + " with your " + weapon["Name"] + ", leaving it with " + str(enemy["health"]) + " HP.")
+      with open(player["inventory"]["weapons"][weaponSelected-1], "r") as f:
+        weapon = json.load(f)
+      dmg = damage(enemy["health"], weapon["dmg"][0], weapon["dmg"][1], weapon["hitChance"])
+      if dmg[1] == "M":
+        typeEffect.medium(Fore.WHITE+"You missed the " + enemy["name"] + ".")
+        sleep(2)
+        clear()
+        continue
+      elif weapon["dmg"][0] == "R" or weapon["dmg"][0] == "B" or weapon["dmg"][0] == "C":
+        enemy["health"] = dmg[0]
+        typeEffect.medium(Fore.WHITE+"You attack the " + enemy["name"] + " with your " + weapon["Name"] + ", leaving it with " + str(enemy["health"]) + " HP.")
         sleep(2)
         clear()
         continue

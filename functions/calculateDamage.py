@@ -1,6 +1,8 @@
 import random
 
 def damage(health, attackType, damage, hitChance, bleeding=False):
+  if random.randint(0, 100) > hitChance:
+    return health, "M"
   
   if attackType == "R":
     return health-damage, "R"

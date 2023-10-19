@@ -13,6 +13,15 @@ from functions.inputProcessing import hinput
 from functions.combat import startBattle
 from functions.calculateDamage import damage
 
+
+goblin = {
+  "name": "Goblin",
+  "health": 20,
+  "attacks": [['The Goblin hits you wtih a stick',5,"R"]]
+}
+startBattle(typeEffect, clear, hinput,damage,goblin)
+sys.exit()
+
 with open("./data/stagesComplete.json", "r") as f:
   stagesComplete = json.load(f)
   f.close()
