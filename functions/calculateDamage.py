@@ -1,6 +1,7 @@
 import random
 
-def damage(health, attackType, damage, bleeding=False):
+def damage(health, attackType, damage, hitChance, bleeding=False):
+  
   if attackType == "R":
     return health-damage, "R"
   elif attackType == "C":

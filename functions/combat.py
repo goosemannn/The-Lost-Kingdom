@@ -1,5 +1,6 @@
 import json
 from colorama import Fore
+from time import sleep
 
 def startBattle(typeEffect, clear, hinput, damage, enemy:dict):
   with open("./data/player.json", "r") as f:
@@ -11,6 +12,7 @@ def startBattle(typeEffect, clear, hinput, damage, enemy:dict):
   fC = green 
   iC = white 
   sC = white 
+  enemyBleeding = False
 
   weaponSelected = 1
 
@@ -91,29 +93,36 @@ def startBattle(typeEffect, clear, hinput, damage, enemy:dict):
     elif inp == "enter":
       return True
   
-  while True: 
-    showFight()
-    if hinput(inputProcessing):
-      break
+  while True:
+    while True: 
+      showFight()
+      if hinput(inputProcessing):
+        break
 
-  if actionSelected == 1:
-    while True:
+    if actionSelected == 1:
       while True:
-        showWeapons()
-        if hinput(weaponSelectInp):
-          break
-      if weaponSelected == len(player["inventory"]["weapons"]):
-        continue 
-      break 
-    clear()
-    enemy["health"] = damage(enemy["health"], player["inventory"]["weapons"][weaponSelected-1]["dmg"][0], player["inventory"]["weapons"][weaponSelected-1]["dmg"][1])
-    typeEffect.medium("You attack the " + enemy["name"] + " with your " + player["inventory"]["weapons"][weaponSelected-1] + ", leaving it with " + str(enemy["health"]) + " HP.")
+        while True:
+          showWeapons()
+          if hinput(weaponSelectInp):
+            break
+        if weaponSelected == len(player["inventory"]["weapons"]):
+          continue 
+        break 
+      clear()
+      weapon = ["inventory"]["weapons"][weaponSelected-1]
+      if weapon["dmg"][0] == "R" or weapon["dmg"][0] == "B" or weapon["dmg"][0] == "C":
+        enemy["health"] = damage(enemy["health"], weapon["dmg"][0], weapon["dmg"][1], weapon["hitChance"])
+        typeEffect.medium("You attack the " + enemy["name"] + " with your " + weapon["Name"] + ", leaving it with " + str(enemy["health"]) + " HP.")
+        sleep(2)
+        clear()
+        continue
+      
     
       
-  elif actionSelected == 2:
-    pass 
-  elif actionSelected == 3:
-    pass
+    elif actionSelected == 2:
+      pass 
+    elif actionSelected == 3:
+      pass
 
   
 
