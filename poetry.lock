@@ -21,7 +21,18 @@ files = [
     {file = "functions-0.7.0.tar.gz", hash = "sha256:5a36bd11d36bbce210fecddd9ff1a475a86035905818a4075d6c7ebb2f714181"},
 ]
 
+[[package]]
+name = "getch"
+version = "1.0"
+description = "Does single char input, like C getch/getche"
+optional = false
+python-versions = "*"
+files = [
+    {file = "getch-1.0-python2.tar.gz", hash = "sha256:be451438f7a2b389f96753aea39b6ed2540a390f1b9a12badcbc110cf9a5ce7f"},
+    {file = "getch-1.0.tar.gz", hash = "sha256:a6c22717c10051ce65b8fb7bddb171af705b1175e694a73be956990f6089d8b1"},
+]
+
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10.0,<3.11"
-content-hash = "f22d2594ed527235871ee53d9d60c140f398a7512d14544507ab6c50cad5c2e7"
+content-hash = "6093fcce28d8afed37494ec4e4e01e6e9593224c7726dc98f0124d29a8345885"

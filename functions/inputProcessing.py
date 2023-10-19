@@ -1,8 +1,9 @@
-import msvcrt
+import getch
 
 def hinput(hook):
-  char = msvcrt.getch().decode("utf-8")
-  if char == '\r':
+  char = getch.getch()
+  print(char)
+  if char == '\n':
     return hook("enter")
   else:
     return hook(char)

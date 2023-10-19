@@ -1,7 +1,7 @@
 {
   "Name": "Basic Dagger",
   "Description": "A basic dagger.",
-  "dmg": ["B",8,2],
+  "dmg": ["B",8],
   "block": 1,
   "hitChance":75
 }

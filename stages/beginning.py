@@ -57,11 +57,11 @@ def run(typeEffect, clear, hinput, startBattle, damage):
 
   
   if currentlySelected == 1:
-    typeEffect.medium("\nYou ruthlessly attack the goblin.")
+    typeEffect.medium("You ruthlessly attack the goblin.")
   elif currentlySelected == 2:
-    typeEffect.medium("\nYou try to talk to the goblin, but it doesn't seem to understand you. It eventually gets bored of trying to talk to you and attacks you.")
+    typeEffect.medium("You try to talk to the goblin, but it doesn't seem to understand you. It eventually gets bored of trying to talk to you and attacks you.")
   elif currentlySelected == 3:
-    typeEffect.medium("\nYou ignore the goblin, and it doesn't appreciate that, so it attacks you.")
+    typeEffect.medium("You ignore the goblin, and it doesn't appreciate that, so it attacks you.")
   
   sleep(3)
   goblin = {
@@ -69,6 +69,6 @@ def run(typeEffect, clear, hinput, startBattle, damage):
     "health": 20,
     "attacks": [['The Goblin hits you wtih a stick',5,"R"]]
   }
-
+  startBattle(typeEffect, clear, hinput,damage,goblin)
 
  
